@@ -1,0 +1,20 @@
+$background-grey: #f3f3f3;
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.3rem;
+  background-color: $background-grey;
+}
+
+.home-header {
+  max-width: 650px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.home-card-title {
+  font-size: 1.25rem;
+}
