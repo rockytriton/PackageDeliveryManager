@@ -7,7 +7,8 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -42,6 +43,9 @@ module.exports = {
     }),
     new ExtractTextPlugin("style.css")
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
   devtool: "source-map",
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
