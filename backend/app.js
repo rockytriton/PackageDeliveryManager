@@ -9,8 +9,11 @@ var usersRouter = require('./routes/users');
 var dronesRouter = require('./routes/drones');
 var droneTypesRouter = require('./routes/droneTypes');
 var packagesRouter = require('./routes/packages');
+const cors = require('cors');
 
 var app = express();
+
+console.log('loading app');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,13 +27,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/drones', dronesRouter);
+app.use('/api/drones', dronesRouter);
 app.use('/droneTypes', droneTypesRouter);
 app.use('/packages', packagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
+});
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
+app.use(function(req, res, next) {
+  console.log('used');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
 // error handler

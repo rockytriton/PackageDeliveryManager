@@ -12,10 +12,16 @@ const client = new Client({
 
 client.connect();
 
+console.log('drones.js');
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+  console.log('get called');
+
   client.query('SELECT * from Drone', (err, resp) => {
     console.log(err, resp.rows);
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.send(resp.rows);
   });
 });
