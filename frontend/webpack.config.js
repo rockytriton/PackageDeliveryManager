@@ -22,6 +22,10 @@ module.exports = {
         loader: "source-map-loader"
       },
       {
+        test: /\.css$/,
+        loader: 'typings-for-css-modules-loader'
+      },
+      {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           use: [

@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/drones', dronesRouter);
-app.use('/droneTypes', droneTypesRouter);
+app.use('/api/droneTypes', droneTypesRouter);
 app.use('/packages', packagesRouter);
 
 // catch 404 and forward to error handler
